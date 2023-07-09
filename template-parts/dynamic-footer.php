@@ -59,7 +59,7 @@ $email_id = get_field('email_id');
 			</div>
 			<div class="footer-content">    
 				<?php
-				$email_id = get_field('email_id');
+				$email_id = 'support@skilltrade.com';
 
 				if ( $email_id ) {
 					echo '<p text-align="center">Email us at <a href="mailto:' . esc_attr( antispambot( $email_id ) ) . '">' . esc_html( antispambot( $email_id ) ) . '</a></p>';
