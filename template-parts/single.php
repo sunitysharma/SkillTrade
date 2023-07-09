@@ -25,10 +25,37 @@ while ( have_posts() ) :
 			<?php the_tags( '<span class="tag-links">' . esc_html__( 'Tagged ', 'hello-elementor' ), null, '</span>' ); ?>
 		</div>
 		<?php wp_link_pages(); ?>
+
+		<!-- **Added: Featured image section** -->
+		<?php if ( has_post_thumbnail() ) : ?>
+			<div class="featured-image">
+				<?php the_post_thumbnail(); ?>
+			</div>
+		<?php endif; ?>
+
+		<!-- **Added: Post author section** -->
+		<div class="post-author">
+			<?php echo get_avatar( get_the_author_meta( 'ID' ), 60 ); ?>
+			<p><?php the_author(); ?></p>
+		</div>
 	</div>
+
+	
 
 	<?php comments_template(); ?>
 </main>
+
+<style>
+	.featured-image {
+		margin: 20px 0;
+		text-align: center;
+	}
+
+	.post-author {
+		margin: 20px 0;
+		text-align: center;
+	}
+</style>
 
 	<?php
 endwhile;
